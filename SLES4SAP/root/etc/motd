@@ -1,4 +1,4 @@
-Welcome to SUSE Linux Enterprise Server for SAP Applications 12 SP2!
+Welcome to SUSE Linux Enterprise Server for SAP Applications 15!
 
 Remote desktop service is now running, you may connect to it via Remmina or
 Windows Remote Desktop Connection on session "sesman-Xvnc" to install SAP
@@ -6,6 +6,6 @@ softwares.
 
 Please keep in mind:
 - Register your system with SUSE Connect to get the latest product updates:
-    SUSEConnect -e company@example.com -r YOUR_CODE
+    SUSEConnect -e company@example.com -r YOUR_REGISTRATION_CODE
 - Disable remote desktop service after having installed SAP products:
     systemctl stop xrdp; systemctl disable xrdp

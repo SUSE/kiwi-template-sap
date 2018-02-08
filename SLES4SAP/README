@@ -1,21 +1,20 @@
 # Introduction
-This KIWI template is created based on SLES 12 SP1 JEOS for SLES4SAP 12 SP2 with comprehensive collection of softwares to support running SAP products.
+This KIWI template is created based on SLES 15 JEOS for SLES4SAP 15 with comprehensive collection of softwares to support running SAP products.
 
 The SAP product installer requires a fully functional desktop (X Forwarding is not enough), therefore the template automatically starts remote desektop service (xrdp) that allows viewer programs such as Remmina or Windows Remote Desktop Connection to login remotely with user credentials via session "sesman-Xvnc".
 
 Please keep in mind:
 - Register your system with SUSE Connect to get the latest product updates:
-    SUSEConnect -e company@example.com -r YOUR_CODE
+    SUSEConnect -e company@example.com -r YOUR_REGISTRATION_CODE
 - Disable remote desktop service after having installed SAP products:
     systemctl stop xrdp; systemctl disable xrdp
 
 # Building the image
-Copy the ISO image of your SLES4SAP 12 SP2 medium to /tmp/SLES4SAP-12-SP2.iso, and then invoke kiwi to build the image:
+Copy SLE-15 installer and packages ISO files to /tmp/SLE15-Installer.iso and /tmp/SLE15-Packages.iso, and then invoke kiwi (new generation) to build the image:
 
-    kiwi -p SLES4SAP --root fsroot
-    kiwi --create fsroot --type vmx -d build
+kiwi-ng --type vmx system build --target-dir fsroot --description ./path/to/dir/of/config.xml
 
-As of now only "vmx" type is supported. The result ("qcow2" disk image file) can be used on KVM-based hypervisors, such as OpenStack.
+The result image ("vmx" type, "qcow2" format) can be used on KVM-based hypervisors, such as qemu-kvm and OpenStack.
 
 # Author
-Howard Guo <hguo@suse.com>
+Howard Guo <hguo@suse.com>, February 2018.
