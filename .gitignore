@@ -1,3 +1,5 @@
 SLES4SAP/config.converted.xml
 *.tar.gz
 *.tgz
+*.swp
+fsroot/
